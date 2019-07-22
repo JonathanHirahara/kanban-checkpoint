@@ -31,19 +31,26 @@ export default class TaskController {
     } catch (error) { next(error) }
   }
 
-
-
-
-
-
-
-
-  constructor() {
-    this.router = express.Router()
-      .post('', this.createTask)
-      .get('', this.getAllTasks)
-      .get('', this.getTaskById)
-      .put('/:taskId', this.editTask)
-    //     .delete()
-    // }
+  async deleteTask(req, res, next) {
+    try {
+      let deleteTask = await _taskService.findByIdAndDelete(req.params.taskId)
+      res.send('Task Deleted!')
+    } catch (error) { next(error) }
   }
+}
+
+
+
+
+
+
+
+constructor() {
+  this.router = express.Router()
+    .post('', this.createTask)
+    .get('', this.getAllTasks)
+    .get('', this.getTaskById)
+    .put('/:taskId', this.editTask)
+  //     .delete()
+  // }
+}
