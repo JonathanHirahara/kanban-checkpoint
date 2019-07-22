@@ -37,7 +37,6 @@ export default class TaskController {
       res.send('Task Deleted!')
     } catch (error) { next(error) }
   }
-}
 
 
 
@@ -45,12 +44,16 @@ export default class TaskController {
 
 
 
-constructor() {
-  this.router = express.Router()
-    .post('', this.createTask)
-    .get('', this.getAllTasks)
-    .get('', this.getTaskById)
-    .put('/:taskId', this.editTask)
-  //     .delete()
-  // }
+
+
+
+  constructor() {
+    this.router = express.Router()
+      .post('', this.createTask)
+      .get('', this.getAllTasks)
+      .get('', this.getTaskById)
+      .put('/:taskId', this.editTask)
+      .delete('/:taskId', this.deleteTask)
+
+  }
 }
