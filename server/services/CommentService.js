@@ -9,7 +9,7 @@ let _schema = new mongoose.Schema({
   authorId: { type: ObjectId, ref: 'User', required: true },
   boardId: { type: ObjectId, ref: 'Board', required: true },
   listId: { type: ObjectId, ref: 'List', required: true },
-  taskId: { tyoe: ObjectId, ref: 'Task', required: true }
+  taskId: { type: ObjectId, ref: 'Task', required: true }
 
 })
 
