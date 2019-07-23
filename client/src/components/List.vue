@@ -3,7 +3,8 @@
   <div class="lists">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">{{list.title}}</h5>
+        <h5 class="card-title">{{listData.title}}</h5>
+        <!-- task tag -->
       </div>
     </div>
   </div>
@@ -12,11 +13,18 @@
 <script>
   export default {
     name: 'List',
-    props: [],
+    props: ['listData'],
     data() {
       return {}
     },
+    mounted() {
 
+    },
+    computed: {
+      lists() {
+        return this.$store.state.activeLists
+      }
+    }
   }
 </script>
 

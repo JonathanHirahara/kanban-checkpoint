@@ -106,15 +106,37 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error)
       }
-    }
+    },
 
     //#endregion
 
 
     //#region -- LISTS --
+    async createList({ dispatch, commit }, listData) {
+      try {
+        let res = await api.post('lists/', listData)
+        dispatch('getLists')
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async getLists({ dispatch, commit }, payload) {
+      try {
+        let res = await api.get('lists')
+        commit('setLists', res.data)
+      } catch (error) { console.log(error) }
+    },
 
+    async getListByBoardId({ dispatch, commit }, payload) {
+      try {
+        let res = await api.get('boards/' + payload + '/lists')
+        commit('setAcitveList', res.data)
 
-
-    //#endregion
-  }
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  },
 })
+
+  //#endregion

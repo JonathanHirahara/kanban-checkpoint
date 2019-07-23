@@ -3,12 +3,15 @@
     <h3>{{board.title}}</h3>
     <p>{{board.description}}</p>
     <ListForm></ListForm>
+    <!-- <List :listData=''></List> -->
+    <list v-for="list in lists" :listData="List"></list>
   </div>
 
 </template>
 <script>
   //  import components here
   import ListForm from '@/components/createList'
+  import List from '@/components/List'
   export default {
     name: "board",
     props: ["boardId"],
@@ -18,19 +21,25 @@
     mounted() {
       let dataToSend = {
         boardId: this.$route.params.boardId
+
       }
       this.$store.dispatch('getBoardById', dataToSend)
+      this.$store.dispatch('getListsByBoardId', this.$route.params.boardId)
     },
     computed: {
       board() {
         return this.$store.state.activeBoard
+      },
+      lists() {
+        return this.$store.state.activeList
       }
     },
     methods: {
 
     },
     components: {
-      ListForm
+      ListForm,
+      List
     },
 
   };
