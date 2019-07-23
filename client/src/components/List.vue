@@ -1,10 +1,11 @@
 <template>
   <!-- boards have a list -->
   <div class="lists">
-    <ul>
-      <li>{{  }}</li>
-      <!-- fill this in later -->
-    </ul>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{list.title}}</h5>
+      </div>
+    </div>
   </div>
 </template>
 
