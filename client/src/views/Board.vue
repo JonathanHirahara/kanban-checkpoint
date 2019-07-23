@@ -5,10 +5,12 @@
   </div>
 
 </template>
-
 <script>
+  //  import components here
+
   export default {
     name: "board",
+    props: ["boardId"],
     data() {
       return {}
     },
@@ -23,8 +25,12 @@
         return this.$store.state.activeBoard
       }
     },
-    props: ["boardId"]
+    methods: {
 
+    },
+    components: {
+
+    },
 
   };
 </script>
