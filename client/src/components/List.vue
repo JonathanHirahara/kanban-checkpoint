@@ -4,6 +4,7 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{listData.title}}</h5>
+        <button class="btn btn-danger" @click.prevent="deleteList">Delete List</button>
         <!-- task tag -->
       </div>
     </div>
@@ -23,6 +24,11 @@
     computed: {
       lists() {
         return this.$store.state.lists
+      }
+    },
+    methods: {
+      deleteList() {
+        this.$store.dispatch('deleteList', this.listData)
       }
     }
   }

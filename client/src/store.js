@@ -133,6 +133,14 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error)
       }
+    },
+    async deleteList({ dispatch, commit }, payload) {
+      try {
+        
+        let res = await api.delete('lists/' + payload._id)
+        dispatch('getListsByBoardId', payload.boardId)
+        console.log(res)
+      } catch (error) { console.error(error) }
     }
   },
 })
