@@ -113,17 +113,12 @@ export default new Vuex.Store({
     async createList({ dispatch, commit }, listData) {
       try {
         let res = await api.post('lists/', listData)
-        dispatch('getLists')
+        dispatch('getListsByBoardId', listData.boardId)
       } catch (error) {
         console.error(error)
       }
     },
-    async getLists({ dispatch, commit }, payload) {
-      try {
-        let res = await api.get('lists')
-        commit('setLists', res.data)
-      } catch (error) { console.log(error) }
-    },
+
 
     async getListsByBoardId({ dispatch, commit }, payload) {
       try {
@@ -136,7 +131,6 @@ export default new Vuex.Store({
     },
     async deleteList({ dispatch, commit }, payload) {
       try {
-        
         let res = await api.delete('lists/' + payload._id)
         dispatch('getListsByBoardId', payload.boardId)
         console.log(res)

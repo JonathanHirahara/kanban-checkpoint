@@ -29,6 +29,7 @@ export default class BoardsController {
     }
     catch (err) { next(err) }
   }
+
   async getListsByBoardId(req, res, next) {
     try {
       let allLists = await _listService.find({ boardId: req.params.id })
