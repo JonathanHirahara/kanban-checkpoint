@@ -11,12 +11,7 @@ export default class ListController {
     } catch (error) { next(error) }
   }
 
-  async getAllLists(req, res, next) {
-    try {
-      let allLists = await _listService.find()
-      res.send(allLists)
-    } catch (error) { next(error) }
-  }
+
 
   async getListById(req, res, next) {
     try {
@@ -49,6 +44,6 @@ export default class ListController {
       .get('/:listId', this.getListById)
       .put('/:listId', this.editList)
       .delete('/:listId', this.deleteList)
-      .get('', this.getAllLists)
+
   }
 }

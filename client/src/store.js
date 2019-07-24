@@ -23,7 +23,7 @@ export default new Vuex.Store({
     tasks: [],
     activeTask: {},
     lists: [],
-    activeList: {}
+
 
   },
   mutations: {
@@ -45,9 +45,7 @@ export default new Vuex.Store({
     setLists(state, lists) {
       state.lists = lists
     },
-    setActiveList(state, activeList) {
-      state.activeList = activeList
-    }
+
   },
   actions: {
     //#region -- AUTH STUFF --
@@ -127,10 +125,10 @@ export default new Vuex.Store({
       } catch (error) { console.log(error) }
     },
 
-    async getListByBoardId({ dispatch, commit }, payload) {
+    async getListsByBoardId({ dispatch, commit }, payload) {
       try {
         let res = await api.get('boards/' + payload + '/lists')
-        commit('setAcitveList', res.data)
+        commit('setLists', res.data)
 
       } catch (error) {
         console.error(error)

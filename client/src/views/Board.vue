@@ -4,7 +4,7 @@
     <p>{{board.description}}</p>
     <ListForm></ListForm>
     <!-- <List :listData=''></List> -->
-    <list v-for="list in lists" :listData="List"></list>
+    <list v-for="list in lists" :listData="list"></list>
   </div>
 
 </template>
@@ -31,7 +31,7 @@
         return this.$store.state.activeBoard
       },
       lists() {
-        return this.$store.state.activeList
+        return this.$store.state.lists
       }
     },
     methods: {

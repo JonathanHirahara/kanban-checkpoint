@@ -22,7 +22,7 @@
     },
     computed: {
       lists() {
-        return this.$store.state.activeLists
+        return this.$store.state.lists
       }
     }
   }

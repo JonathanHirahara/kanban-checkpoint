@@ -2,11 +2,13 @@ import _boardService from '../services/BoardService'
 import express from 'express'
 import { Authorize } from '../middleware/authorize.js'
 import _listService from '../services/ListService.js'
+
 //PUBLIC
 export default class BoardsController {
   constructor() {
     this.router = express.Router()
       .use(Authorize.authenticated)
+      .get('/:id/lists', this.getListsByBoardId)
       .get('', this.getAll)
       .get('/:id', this.getById)
       .post('', this.create)
@@ -26,6 +28,12 @@ export default class BoardsController {
       return res.send(data)
     }
     catch (err) { next(err) }
+  }
+  async getListsByBoardId(req, res, next) {
+    try {
+      let allLists = await _listService.find({ boardId: req.params.id })
+      res.send(allLists)
+    } catch (error) { next(error) }
   }
 
   async getById(req, res, next) {
