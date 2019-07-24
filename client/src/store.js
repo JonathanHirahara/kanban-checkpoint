@@ -20,7 +20,7 @@ export default new Vuex.Store({
     user: {},
     boards: [],
     activeBoard: {},
-    tasks: [],
+    tasks: {},
     activeTask: {},
     lists: [],
 
@@ -36,14 +36,11 @@ export default new Vuex.Store({
     setActiveBoard(state, activeBoard) {
       state.activeBoard = activeBoard
     },
-    setTask(state, tasks) {
-      state.tasks = tasks
-    },
-    setActiveTask(state, activeTask) {
-      state.activeTask = activeTask
-    },
     setLists(state, lists) {
       state.lists = lists
+    },
+    setTasks(state, taskData) {
+      Vue.set(state.tasks, taskData[0].listId, taskData)
     },
 
   },
@@ -119,7 +116,6 @@ export default new Vuex.Store({
       }
     },
 
-
     async getListsByBoardId({ dispatch, commit }, payload) {
       try {
         let res = await api.get('boards/' + payload + '/lists')
@@ -129,14 +125,39 @@ export default new Vuex.Store({
         console.error(error)
       }
     },
+
     async deleteList({ dispatch, commit }, payload) {
       try {
         let res = await api.delete('lists/' + payload._id)
         dispatch('getListsByBoardId', payload.boardId)
         console.log(res)
       } catch (error) { console.error(error) }
+    },
+
+
+    //#endregion
+
+    //#region--Tasks--
+
+    async createTask({ dispatch, commit }, task) {
+      try {
+        let res = await api.post('tasks/', task)
+        dispatch('getTasksByListId', task.listId)
+        console.log(res)
+      } catch (error) { console.error(error) }
+    },
+
+
+    async getTasksByListId({ dispatch, commit }, payload) {
+      try {
+        let res = await api.get('lists/' + payload + '/tasks')
+        commit('setTasks', res.data)
+      } catch (error) { console.error(error) }
     }
-  },
-})
+
+    //NOTE this is the end of actions
+  }
 
   //#endregion
+})
+

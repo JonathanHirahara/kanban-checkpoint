@@ -12,12 +12,12 @@ export default class TaskController {
     } catch (error) { next(error) }
   }
 
-  async getAllTasks(req, res, next) {
-    try {
-      let allTasks = await _taskService.find()
-      res.send(allTasks)
-    } catch (error) { next(error) }
-  }
+  // async getAllTasks(req, res, next) {
+  //   try {
+  //     let allTasks = await _taskService.find()
+  //     res.send(allTasks)
+  //   } catch (error) { next(error) }
+  // }
 
   async getTaskById(req, res, next) {
     try {
@@ -40,18 +40,10 @@ export default class TaskController {
   }
 
 
-
-
-
-
-
-
-
-
   constructor() {
     this.router = express.Router()
       .post('', this.createTask)
-      .get('', this.getAllTasks)
+
       .get('', this.getTaskById)
       .put('/:taskId', this.editTask)
       .delete('/:taskId', this.deleteTask)

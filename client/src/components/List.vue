@@ -4,14 +4,17 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{listData.title}}</h5>
+        <TaskForm :listId="listData._id"></TaskForm>
         <button class="btn btn-danger" @click.prevent="deleteList">Delete List</button>
-        <!-- task tag -->
+        <Task v-for="task in tasks" :taskData="task"></Task>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import TaskForm from '@/components/TaskForm'
+  import Task from '@/components/Tasks'
   export default {
     name: 'List',
     props: ['listData'],
@@ -19,17 +22,24 @@
       return {}
     },
     mounted() {
-
+      this.$store.dispatch("getTasksByListId", this.listData._id)
     },
     computed: {
       lists() {
         return this.$store.state.lists
+      },
+      tasks() {
+        return this.$store.state.tasks[this.listData._id] || []
       }
     },
     methods: {
       deleteList() {
         this.$store.dispatch('deleteList', this.listData)
       }
+    },
+    components: {
+      TaskForm,
+      Task
     }
   }
 </script>
