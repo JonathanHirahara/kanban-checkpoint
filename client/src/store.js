@@ -21,8 +21,8 @@ export default new Vuex.Store({
     boards: [],
     activeBoard: {},
     tasks: [],
-    activeTask: {},
     lists: [],
+    comments: []
 
 
   },
@@ -44,6 +44,10 @@ export default new Vuex.Store({
     },
     resetState(state, ) {
       state.user = {}
+    },
+    setComments(state, commentData) {
+
+      Vue.set(state.comments, commentData.taskId, commentData || {})
     }
 
   },
@@ -163,6 +167,19 @@ export default new Vuex.Store({
         let res = await api.delete('tasks/' + payload._id)
         dispatch('getTasksByListId', payload.listId)
       } catch (error) { console.error(error) }
+    },
+    //  comments section
+
+    async createComment({ dispatch, commit }, commentData) {
+      debugger
+      try {
+        let res = await api.post('comments/', commentData)
+        dispatch('getCommentsByTaskId', commentData.taskId)
+      } catch (error) { console.error(error) }
+    },
+
+    async getCommentsByTaskId({ commit }, taskId) {
+
     }
 
     //NOTE this is the end of actions

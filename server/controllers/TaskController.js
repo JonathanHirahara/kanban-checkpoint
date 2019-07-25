@@ -26,6 +26,13 @@ export default class TaskController {
     } catch (error) { next(error) }
   }
 
+  async getCommentsByTaskId(req, res, next) {
+    try {
+      let allComments = await _commentService.find({ taskId: req.params.id })
+      res.send(allComments)
+    } catch (error) { next(error) }
+  }
+
 
   constructor() {
     this.router = express.Router()
