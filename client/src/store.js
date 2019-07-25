@@ -20,9 +20,9 @@ export default new Vuex.Store({
     user: {},
     boards: [],
     activeBoard: {},
-    tasks: [],
+    tasks: {},
     lists: [],
-    comments: []
+    comments: {}
 
 
   },
@@ -40,14 +40,13 @@ export default new Vuex.Store({
       state.lists = lists
     },
     setTasks(state, taskData) {
-      Vue.set(state.tasks, taskData.listId, taskData.data || {})
+      Vue.set(state.tasks, taskData.listId, taskData.data || [])
     },
     resetState(state, ) {
       state.user = {}
     },
     setComments(state, commentData) {
-
-      Vue.set(state.comments, commentData.taskId, commentData || {})
+      Vue.set(state.comments, commentData.taskId, commentData.data)
     }
 
   },

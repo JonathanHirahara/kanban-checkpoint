@@ -33,7 +33,7 @@
         return this.$store.state.tasks
       },
       comments() {
-        return this.$store.state.comments
+        return this.$store.state.comments[this.taskData._id]
       }
 
     },
