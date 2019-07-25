@@ -12,23 +12,10 @@ export default class TaskController {
     } catch (error) { next(error) }
   }
 
-  // async getAllTasks(req, res, next) {
-  //   try {
-  //     let allTasks = await _taskService.find()
-  //     res.send(allTasks)
-  //   } catch (error) { next(error) }
-  // }
-
   async getTaskById(req, res, next) {
     try {
       let taskById = await _taskService.findById(req.params.taskId)
       res.send(taskById)
-    } catch (error) { next(error) }
-  }
-  async editTask(req, res, next) {
-    try {
-      let editTask = await _taskService.findByIdAndUpdate(req.params.taskId, req.body)
-      res.send(editTask)
     } catch (error) { next(error) }
   }
 
@@ -43,9 +30,8 @@ export default class TaskController {
   constructor() {
     this.router = express.Router()
       .post('', this.createTask)
-
       .get('', this.getTaskById)
-      .put('/:taskId', this.editTask)
+
       .delete('/:taskId', this.deleteTask)
 
   }

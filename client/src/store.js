@@ -20,7 +20,7 @@ export default new Vuex.Store({
     user: {},
     boards: [],
     activeBoard: {},
-    tasks: {},
+    tasks: [],
     activeTask: {},
     lists: [],
 
@@ -40,7 +40,7 @@ export default new Vuex.Store({
       state.lists = lists
     },
     setTasks(state, taskData) {
-      Vue.set(state.tasks, taskData[0].listId, taskData)
+      Vue.set(state.tasks, taskData.listId, taskData.data || {})
     },
 
   },
@@ -147,11 +147,18 @@ export default new Vuex.Store({
       } catch (error) { console.error(error) }
     },
 
-
     async getTasksByListId({ dispatch, commit }, payload) {
       try {
         let res = await api.get('lists/' + payload + '/tasks')
-        commit('setTasks', res.data)
+        commit('setTasks', { listId: payload, data: res.data })
+      } catch (error) { console.error(error) }
+    },
+
+    async deleteTask({ dispatch, commit }, payload) {
+      try {
+        debugger
+        let res = await api.delete('tasks/' + payload._id)
+        dispatch('getTasksByListId', payload.listId)
       } catch (error) { console.error(error) }
     }
 

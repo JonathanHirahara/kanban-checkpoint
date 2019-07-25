@@ -6,7 +6,7 @@
         <h5 class="card-title">{{listData.title}}</h5>
         <TaskForm :listId="listData._id"></TaskForm>
         <button class="btn btn-danger" @click.prevent="deleteList">Delete List</button>
-        <Task v-for="task in tasks" :taskData="task"></Task>
+        <Task v-if="task.content" v-for="task in tasks" :taskData="task"></Task>
       </div>
     </div>
   </div>
