@@ -1,12 +1,12 @@
 <template>
   <div class="comments">
     <div class="row justify-content-center">
-      <div class="col-3">
-        <h6>{{commentData.content}}</h6>
+      <div class="col-6">
+        <h5>{{commentData.content}}</h5>
         <p>{{commentData.author}}</p>
       </div>
       <div class="col-3">
-        <button class="btn btn-outline-dark" @click.prevent="deleteComment">DEL</button>
+        <button class="btn btn-outline-dark btn-sm" @click.prevent="deleteComment">Del</button>
       </div>
     </div>
 
