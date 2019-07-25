@@ -5,7 +5,7 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item">{{taskData.content}}</li>
       </ul>
-      <CommentForm :taskId="taskData._id"></CommentForm>
+      <CommentForm :listId="taskData.listId" :taskId="taskData._id"></CommentForm>
       <button class=" btn btn-danger" @click.prevent="deleteTask">Delete Task</button>
       <Comment v-for="comment in comments" :commentData="comment"></Comment>
     </div>

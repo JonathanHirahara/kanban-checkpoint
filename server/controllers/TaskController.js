@@ -34,11 +34,12 @@ export default class TaskController {
   }
 
 
+
   constructor() {
     this.router = express.Router()
       .post('', this.createTask)
       .get('', this.getTaskById)
-
+      .get('/:id/comments', this.getCommentsByTaskId)
       .delete('/:taskId', this.deleteTask)
 
   }

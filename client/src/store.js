@@ -171,15 +171,19 @@ export default new Vuex.Store({
     //  comments section
 
     async createComment({ dispatch, commit }, commentData) {
-      debugger
+
       try {
         let res = await api.post('comments/', commentData)
         dispatch('getCommentsByTaskId', commentData.taskId)
       } catch (error) { console.error(error) }
     },
 
-    async getCommentsByTaskId({ commit }, taskId) {
+    async getCommentsByTaskId({ commit, dispatch }, taskId) {
+      try {
 
+        let res = await api.get('tasks/' + taskId + '/comments')
+        commit('setComments', { taskId, data: res.data })
+      } catch (error) { console.error(error) }
     }
 
     //NOTE this is the end of actions
