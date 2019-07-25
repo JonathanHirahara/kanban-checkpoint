@@ -183,6 +183,12 @@ export default new Vuex.Store({
         let res = await api.get('tasks/' + taskId + '/comments')
         commit('setComments', { taskId, data: res.data })
       } catch (error) { console.error(error) }
+    },
+    async deleteComment({ dispatch, commit }, payload) {
+      try {
+        let res = await api.delete('comments/' + payload._id)
+        dispatch('getCommentsByTaskId', payload.taskId)
+      } catch (error) { console.error(error) }
     }
 
     //NOTE this is the end of actions

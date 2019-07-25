@@ -1,15 +1,15 @@
 <template>
-  <div class="tasks">
-
-    <div class="card" style="width: 18rem;">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{taskData.content}}</li>
-      </ul>
-      <CommentForm :listId="taskData.listId" :taskId="taskData._id"></CommentForm>
-      <button class=" btn btn-danger" @click.prevent="deleteTask">Delete Task</button>
-      <Comment v-for="comment in comments" :commentData="comment"></Comment>
+  <div class="tasks ">
+    <div class="row justify-content-center">
+      <div class="card border border-dark" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{taskData.content}}</li>
+        </ul>
+        <button class=" btn btn-danger " @click.prevent="deleteTask">Delete Task</button>
+        <CommentForm :listId="taskData.listId" :taskId="taskData._id"></CommentForm>
+        <Comment v-for="comment in comments" :commentData="comment"></Comment>
+      </div>
     </div>
-
   </div>
 </template>
 
