@@ -42,6 +42,9 @@ export default new Vuex.Store({
     setTasks(state, taskData) {
       Vue.set(state.tasks, taskData.listId, taskData.data || {})
     },
+    resetState(state, ) {
+      state.user = {}
+    }
 
   },
   actions: {
@@ -156,7 +159,7 @@ export default new Vuex.Store({
 
     async deleteTask({ dispatch, commit }, payload) {
       try {
-        debugger
+
         let res = await api.delete('tasks/' + payload._id)
         dispatch('getTasksByListId', payload.listId)
       } catch (error) { console.error(error) }

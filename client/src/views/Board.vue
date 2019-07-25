@@ -1,5 +1,8 @@
 <template>
   <div class="board">
+    <div class="logout">
+      <button @click="logout">logout</button>
+    </div>
     <h3>{{board.title}}</h3>
     <p>{{board.description}}</p>
     <ListForm></ListForm>
@@ -35,7 +38,9 @@
       }
     },
     methods: {
-
+      logout() {
+        this.$store.dispatch('logout')
+      }
     },
     components: {
       ListForm,
