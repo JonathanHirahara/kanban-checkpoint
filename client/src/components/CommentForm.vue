@@ -3,9 +3,11 @@
     <div class="row">
       <form class="col-6 m-1" @submit.prevent="createComment">
         <label for="comment">Enter Comment:</label>
-        <input type="comment" name="comment" id="task" placeholder="Enter comment" v-model="newComment.content">
+        <input class="text-light bg-dark" type="comment" name="comment" id="task" placeholder="Enter comment"
+          v-model="newComment.content">
         <label for="author">Author</label>
-        <input type="text" name="author" id="author" placeholder="Your Name" v-model="newComment.author">
+        <input class="text-light bg-dark" type="text" name="author" id="author" placeholder="Your Name"
+          v-model="newComment.author">
         <button class="btn btn-success btn-sm mt-1">Add Comment</button>
       </form>
     </div>

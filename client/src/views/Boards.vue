@@ -1,13 +1,13 @@
 <template>
-  <div class="boards">
-    <div>
-      <button @click="logout">logout</button>
+  <div class="boards container">
+    <div class="row justify-content-end">
+      <button class=" logoutbutton btn btn-warning" @click=" logout">logout</button>
     </div>
     <h2> WELCOME TO THE BOARDS!!!</h2>
     <form @submit.prevent="addBoard">
-      <input type="text" placeholder="title" v-model="newBoard.title" required>
-      <input type="text" placeholder="description" v-model="newBoard.description">
-      <button type="submit">Create Board</button>
+      <input class="text-light bg-dark" type="text" placeholder="title" v-model="newBoard.title" required>
+      <input class="text-light bg-dark" type="text" placeholder="description" v-model="newBoard.description">
+      <button type="submit" class="btn btn-warning">Create Board</button>
     </form>
     <div v-for="board in boards" :key="board._id">
       <router-link :to="{name: 'board', params: {boardId: board._id}}">{{board.title}}</router-link>

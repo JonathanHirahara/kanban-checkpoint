@@ -1,20 +1,22 @@
 <template>
 
   <!-- test comment cheese -->
-  <div class="tasks ">
-    <div class="row justify-content-center">
-      <div class="card border border-dark" style="width: 18rem;">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">{{taskData.content}}</li>
-        </ul>
-        <button class=" btn btn-danger " @click.prevent="deleteTask">Delete Task</button>
-        <CommentForm :listId="taskData.listId" :taskId="taskData._id"></CommentForm>
-        <Comment v-for="comment in comments" :commentData="comment"></Comment>
+  <div class=" container tasks text-light bg-dark">
+    <div class=" row justify-content-center ">
+      <div class="col-12 justify-content-center ">
+        <div class="card border border-dark text-light bg-dark" style="width: 18rem;">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item text-light bg-dark">{{taskData.content}}</li>
+          </ul>
+          <button class=" btn btn-danger " @click.prevent="deleteTask">Delete Task</button>
+          <CommentForm :listId="taskData.listId" :taskId="taskData._id"></CommentForm>
+          <Comment v-for="comment in comments" :commentData="comment"></Comment>
+        </div>
       </div>
     </div>
   </div>
 </template>
-
+class=""
 
 <script>
   import CommentForm from '@/components/CommentForm'

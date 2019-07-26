@@ -1,16 +1,21 @@
 <template>
   <div class="listForm">
     <div class="row justify-content-center">
-      <form class="col-3" @submit.prevent="createList">
-        <label for="list">Make List?</label>
-        <input type="text" name="list" id="list" placeholder="list title here" v-model="newList.title">
-        <input type="text" name="list" id="list" placeholder="list content here" v-model="newList.content">
+      <form class="col-4" @submit.prevent="createList">
+        <label for="list">Name your list: </label>
+        <input class="text-light bg-dark" type="text" name="list" id="list" placeholder="list title here"
+          v-model="newList.title"><br>
+        <label for="list">Take Yourself: </label>
+        <input class="text-light bg-dark" type="text" name="list" id="list" placeholder="list content here"
+          v-model="newList.content"><br>
         <button type="submit" class="btn btn-warning">Make list</button>
       </form>
     </div>
 
   </div>
 </template>
+
+
 
 
 <script>

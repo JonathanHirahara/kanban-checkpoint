@@ -1,13 +1,16 @@
 <template>
-  <div class="board">
-    <div class="logout">
-      <button @click="logout">logout</button>
+  <div class="container">
+    <div class="board col-12 ">
+      <div class="logout d-flex justify-content-end">
+        <button @click="logout" class="btn btn-warning">logout</button>
+      </div>
+      <h3>{{board.title}}</h3>
+      <p>{{board.description}}</p>
+      <ListForm></ListForm>
+      <!-- <List :listData=''></List> -->
+      <list v-for="list in lists" :listData="list"></list>
     </div>
-    <h3>{{board.title}}</h3>
-    <p>{{board.description}}</p>
-    <ListForm></ListForm>
-    <!-- <List :listData=''></List> -->
-    <list v-for="list in lists" :listData="list"></list>
+
   </div>
 
 </template>

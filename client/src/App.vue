@@ -14,12 +14,23 @@
 </script>
 
 <style>
+  * {
+    background-color: rgba(83, 78, 78, 0.322);
+  }
+
   #app {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    color: #c9d3df;
+    font-size: 20px;
+
+  }
+
+  input .logoutbutton {
+    background-color: antiquewhite;
+    border: 1px soild black;
   }
 
   #nav {

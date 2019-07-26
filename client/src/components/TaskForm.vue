@@ -4,7 +4,8 @@
 
       <form class="col-3" @submit.prevent="createTask">
         <label for="task">Enter Task</label>
-        <input type="text" name="task" id="task" placeholder="Enter Task" v-model="newTask.content">
+        <input class="text-light bg-dark" type="text" name="task" id="task" placeholder="Enter Task"
+          v-model="newTask.content">
         <button class="btn btn-success">Submit Task</button>
       </form>
 
