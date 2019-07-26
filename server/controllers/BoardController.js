@@ -68,6 +68,8 @@ export default class BoardsController {
       return res.send("Successfully deleted")
     } catch (error) { next(error) }
   }
+
+
 }
 
 

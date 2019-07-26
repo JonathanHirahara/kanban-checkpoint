@@ -6,7 +6,7 @@
     <h3>{{board.title}}</h3>
     <p>{{board.description}}</p>
     <ListForm></ListForm>
-
+    <button class="btn btn-danger" @click="deleteBoard">DEL</button>
     <list v-for="list in lists" :listData="list"></list>
   </div>
 
@@ -28,6 +28,7 @@
       }
       this.$store.dispatch('getBoardById', dataToSend)
       this.$store.dispatch('getListsByBoardId', this.$route.params.boardId)
+      this.$store.dispatch('getBoards')
     },
     computed: {
       board() {
@@ -40,6 +41,9 @@
     methods: {
       logout() {
         this.$store.dispatch('logout')
+      },
+      deleteBoard() {
+        this.$store.dispatch('deleteBoard', this.boardId)
       }
     },
     components: {

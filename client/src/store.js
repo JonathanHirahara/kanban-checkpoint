@@ -82,7 +82,6 @@ export default new Vuex.Store({
     },
     //#endregion
 
-
     //#region -- BOARDS --
     async getBoards({ commit, dispatch }) {
       try {
@@ -108,9 +107,15 @@ export default new Vuex.Store({
         console.error(error)
       }
     },
+    async deleteBoard({ dispatch, commit }, payload) {
+      try {
+        let res = await api.delete('boards/' + payload)
+        router.push({ name: 'boards' })
+        console.log(res)
+      } catch (error) { console.error(error) }
+    },
 
     //#endregion
-
 
     //#region -- LISTS --
     async createList({ dispatch, commit }, listData) {
@@ -139,11 +144,9 @@ export default new Vuex.Store({
         console.log(res)
       } catch (error) { console.error(error) }
     },
-
-
     //#endregion
 
-    //#region--Tasks--
+    //#region --Tasks--
 
     async createTask({ dispatch, commit }, task) {
       try {
@@ -167,7 +170,10 @@ export default new Vuex.Store({
         dispatch('getTasksByListId', payload.listId)
       } catch (error) { console.error(error) }
     },
-    //  comments section
+
+    //#endregion
+
+    //#region --comments--
 
     async createComment({ dispatch, commit }, commentData) {
 
@@ -190,10 +196,10 @@ export default new Vuex.Store({
         dispatch('getCommentsByTaskId', payload.taskId)
       } catch (error) { console.error(error) }
     }
+    //#endregion
 
     //NOTE this is the end of actions
   }
 
-  //#endregion
 })
 
