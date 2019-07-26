@@ -42,11 +42,11 @@ export default new Vuex.Store({
     setTasks(state, taskData) {
       Vue.set(state.tasks, taskData.listId, taskData.data || [])
     },
-    resetState(state, ) {
-      state.user = {}
-    },
     setComments(state, commentData) {
       Vue.set(state.comments, commentData.taskId, commentData.data)
+    },
+    resetState(state, ) {
+      state.user = {}
     }
 
   },
