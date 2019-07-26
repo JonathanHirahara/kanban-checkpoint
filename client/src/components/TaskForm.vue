@@ -6,7 +6,7 @@
         <label for="task">Enter Task:</label>
         <input class="text-light bg-dark" type="text" name="task" id="task" placeholder="Enter Task"
           v-model="newTask.content">
-        <button class="btn btn-success border border-dark mb-2">Submit Task</button>
+        <button class="btn btn-success border border-dark m-2">Submit Task</button>
       </form>
 
     </div>

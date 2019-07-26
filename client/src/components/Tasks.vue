@@ -4,7 +4,7 @@
   <div class="col-12 tasks text-light bg-secondary">
     <div class=" row justify-content-center ">
       <div class="col-12 justify-content-center ">
-        <div class="card border border-dark text-light bg-secondary" style="width: 18rem;">
+        <div class="card text-light bg-secondary" style="width: 18rem;">
           <ul class="list-group list-group-flush">
             <li class="list-group-item text-light bg-dark">{{taskData.content}}:</li>
           </ul>
