@@ -6,7 +6,7 @@
       <TaskForm :listId="listData._id"></TaskForm>
       <button class="btn btn-danger border border-light text-dark m-1" @click="deleteList">Delete List</button>
       <div class="row">
-        <drop class="drop" @drop="moveTask">
+        <drop class="drop" @drop="moveTask"><b>Drop Task Here</b>
           <Task v-if="task.content" v-for="task in tasks" :taskData="task"></Task>
         </drop>
       </div>

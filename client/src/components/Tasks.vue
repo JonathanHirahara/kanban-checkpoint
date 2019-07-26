@@ -2,7 +2,7 @@
 
   <!-- test comment cheese -->
   <div class="col-12 tasks text-light bg-secondary">
-    <drag class="drag" :transfer-data="{taskData, oldLidtId: taskData.listId}">
+    <drag class="drag" :transfer-data="{taskData, oldListId: taskData.listId}">
       <div class=" row justify-content-center ">
         <div class="col-12 justify-content-center ">
           <div class="card border border-dark text-light bg-secondary" style="width: 18rem;">

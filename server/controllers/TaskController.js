@@ -33,6 +33,14 @@ export default class TaskController {
     } catch (error) { next(error) }
   }
 
+  async changeLists(req, res, next) {
+    try {
+
+      let editedTask = await _taskService.findByIdAndUpdate(req.params.id, req.body, { new: true })
+      return res.send('task has defected')
+    } catch (error) { next(error) }
+  }
+
 
 
   constructor() {
@@ -41,6 +49,7 @@ export default class TaskController {
       .get('', this.getTaskById)
       .get('/:id/comments', this.getCommentsByTaskId)
       .delete('/:taskId', this.deleteTask)
+      .put('/:taskId', this.changeLists)
 
   }
 }
