@@ -1,7 +1,7 @@
 <template>
   <div class="listForm">
     <div class="row justify-content-center">
-      <form class="col-4" @submit.prevent="createList">
+      <form class="col-4" @submit="createList">
         <label for="list">Name your list: </label>
         <input class="text-light bg-dark" type="text" name="list" id="list" placeholder="list title here"
           v-model="newList.title"><br>

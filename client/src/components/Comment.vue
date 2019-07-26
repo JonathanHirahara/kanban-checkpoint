@@ -6,7 +6,7 @@
         <p class="border border-dark">{{commentData.author}}:</p>
       </div>
       <div class="col-4 border-border-dark">
-        <button class="btn btn-warning border-border-dark btn-sm" @click.prevent="deleteComment">Del</button>
+        <button class="btn btn-warning border-border-dark btn-sm" @click="deleteComment">Del</button>
       </div>
     </div>
 

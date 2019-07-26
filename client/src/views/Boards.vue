@@ -1,10 +1,10 @@
 <template>
   <div class="boards container">
     <div class="row justify-content-end">
-      <button class=" logoutbutton btn btn-warning" @click=" logout">logout</button>
+      <button class=" logoutbutton btn btn-warning" @click="logout">logout</button>
     </div>
     <h2> WELCOME TO THE BOARDS!!!</h2>
-    <form @submit.prevent="addBoard">
+    <form @submit="addBoard">
       <input class="text-light bg-dark" type="text" placeholder="title" v-model="newBoard.title" required>
       <input class="text-light bg-dark" type="text" placeholder="description" v-model="newBoard.description">
       <button type="submit" class="btn btn-warning">Create Board</button>
