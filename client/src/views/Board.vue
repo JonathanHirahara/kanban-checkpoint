@@ -2,7 +2,7 @@
   <div class="row">
     <div class="board col-12">
       <div class="logout">
-        <button @click="home"></button>
+        <button @click="home">Home</button>
         <button @click="logout" class="btn btn-warning">logout</button>
       </div>
       <h3>{{board.title}}</h3>
