@@ -27,7 +27,8 @@
 
           boardId: this.$route.params.boardId,
           authorId: this.$store.state.user._id,
-          listId: this.listId
+          listId: this.listId,
+          oldListId: ''
         }
       }
     },
