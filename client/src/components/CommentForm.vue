@@ -1,7 +1,7 @@
 <template>
   <div class="commentForm">
     <div class="row">
-      <form class="col-6 m-1" @submit.prevent="createComment">
+      <form class="col-12 m-1" @submit.prevent="createComment">
         <label for="comment">Enter Comment:</label>
         <input class="text-light bg-dark" type="comment" name="comment" id="task" placeholder="Enter comment"
           v-model="newComment.content">

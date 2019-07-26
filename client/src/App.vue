@@ -1,8 +1,5 @@
 <template>
-  <div id="app">
-    <div class="row">
-
-    </div>
+  <div id="app" class="container-fluid">
     <router-view />
   </div>
 </template>
@@ -24,7 +21,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #c9d3df;
-    font-size: 20px;
+    /* font-size: 20px; */
 
   }
 

@@ -1,12 +1,12 @@
 <template>
 
   <!-- test comment cheese -->
-  <div class=" container tasks text-light bg-dark">
+  <div class="col-12 tasks text-light bg-dark">
     <div class=" row justify-content-center ">
       <div class="col-12 justify-content-center ">
         <div class="card border border-dark text-light bg-dark" style="width: 18rem;">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item text-light bg-dark">{{taskData.content}}</li>
+            <li class="list-group-item text-light bg-dark">{{taskData.content}}:</li>
           </ul>
           <button class=" btn btn-danger " @click.prevent="deleteTask">Delete Task</button>
           <CommentForm :listId="taskData.listId" :taskId="taskData._id"></CommentForm>

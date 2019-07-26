@@ -2,7 +2,7 @@
   <div class="taskForm">
     <div class="row justify-content-center">
 
-      <form class="col-3" @submit.prevent="createTask">
+      <form class="col-12" @submit.prevent="createTask">
         <label for="task">Enter Task</label>
         <input class="text-light bg-dark" type="text" name="task" id="task" placeholder="Enter Task"
           v-model="newTask.content">
