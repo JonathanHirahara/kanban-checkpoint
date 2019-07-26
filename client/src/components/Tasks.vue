@@ -2,17 +2,6 @@
 
   <!-- test comment cheese -->
   <div class="col-12 tasks text-light bg-secondary">
-<<<<<<< HEAD
-    <div class=" row justify-content-center ">
-      <div class="col-12 justify-content-center ">
-        <div class="card text-light bg-secondary" style="width: 18rem;">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item text-light bg-dark">{{taskData.content}}:</li>
-          </ul>
-          <button class=" btn btn-danger border text-dark border-light " @click="deleteTask">Delete Task</button>
-          <CommentForm :listId="taskData.listId" :taskId="taskData._id"></CommentForm>
-          <Comment v-for="comment in comments" :commentData="comment"></Comment>
-=======
     <drag class="drag" :transfer-data="{taskData, oldLidtId: taskData.listId}">
       <div class=" row justify-content-center ">
         <div class="col-12 justify-content-center ">
@@ -24,7 +13,6 @@
             <CommentForm :listId="taskData.listId" :taskId="taskData._id"></CommentForm>
             <Comment v-for="comment in comments" :commentData="comment"></Comment>
           </div>
->>>>>>> e213b49883665d7b24b32582e44ba72db8c34277
         </div>
       </div>
     </drag>
