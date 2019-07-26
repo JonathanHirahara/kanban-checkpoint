@@ -2,6 +2,7 @@
   <div class="container">
     <div class="board col-12 ">
       <div class="logout d-flex justify-content-end">
+        <button @click="home">Home</button>
         <button @click="logout" class="btn btn-warning">logout</button>
       </div>
       <h3>{{board.title}}</h3>
@@ -18,6 +19,8 @@
   //  import components here
   import ListForm from '@/components/createList'
   import List from '@/components/List'
+  import router from '../router'
+
   export default {
     name: "board",
     props: ["boardId"],
@@ -47,6 +50,9 @@
       },
       deleteBoard() {
         this.$store.dispatch('deleteBoard', this.boardId)
+      },
+      home() {
+        router.push({ name: 'boards' })
       }
     },
     components: {
