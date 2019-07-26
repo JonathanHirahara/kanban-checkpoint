@@ -40,7 +40,5 @@
 
 
 <style scoped>
-  .comments {
-    box-shadow: ;
-  }
+
 </style>
