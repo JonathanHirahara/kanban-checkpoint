@@ -12,7 +12,7 @@
 
 <style>
   * {
-    background-color: rgba(83, 78, 78, 0.322);
+    background-color: rgba(136, 117, 117, 0.322);
   }
 
   #app {
@@ -20,7 +20,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #c9d3df;
+    color: #000000;
     /* font-size: 20px; */
 
   }
@@ -36,10 +36,10 @@
 
   #nav a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #000000;
   }
 
   #nav a.router-link-exact-active {
-    color: #42b983;
+    color: #ff0000;
   }
 </style>

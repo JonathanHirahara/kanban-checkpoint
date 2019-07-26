@@ -1,14 +1,14 @@
 <template>
   <div class="commentForm">
-    <div class="row">
+    <div class="row mb-3">
       <form class="col-12 m-1" @submit="createComment">
         <label for="comment">Enter Comment:</label>
         <input class="text-light bg-dark" type="comment" name="comment" id="task" placeholder="Enter comment"
-          v-model="newComment.content">
-        <label for="author">Author</label>
-        <input class="text-light bg-dark" type="text" name="author" id="author" placeholder="Your Name"
+          v-model="newComment.content"><br>
+        <label for="author">Author:</label><br>
+        <input class="text-light bg-dark mb-1" type="text" name="author" id="author" placeholder="Your Name"
           v-model="newComment.author">
-        <button class="btn btn-success btn-sm mt-1">Add Comment</button>
+        <button class="btn btn-success btn-sm mt-1 border border-light">Add Comment</button>
       </form>
     </div>
 

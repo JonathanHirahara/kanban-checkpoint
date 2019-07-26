@@ -1,14 +1,14 @@
 <template>
   <div class="listForm">
-    <div class="row justify-content-center">
-      <form class="col-4" @submit="createList">
+    <div class="row justify-content-center mb-3">
+      <form class="col-4 border border-secondary" @submit="createList">
         <label for="list">Name your list: </label>
-        <input class="text-light bg-dark" type="text" name="list" id="list" placeholder="list title here"
+        <input class="text-light bg-dark mt-1" type="text" name="list" id="list" placeholder="list title here"
           v-model="newList.title"><br>
-        <label for="list">Take Yourself: </label>
+        <label for="list">Task Yourself: </label>
         <input class="text-light bg-dark" type="text" name="list" id="list" placeholder="list content here"
           v-model="newList.content"><br>
-        <button type="submit" class="btn btn-warning">Make list</button>
+        <button type="submit" class="btn btn-warning border border-light mb-3">Make list</button>
       </form>
     </div>
 

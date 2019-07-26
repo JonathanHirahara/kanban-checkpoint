@@ -2,15 +2,15 @@
   <div class="row">
     <div class="board col-12">
       <div class="logout">
-        <button @click="home">Home</button>
-        <button @click="logout" class="btn btn-warning">logout</button>
+        <button class="btn btn-success border border-light" @click="home">Home</button>
+        <button @click="logout" class="btn btn-warning border border-light ml-1">logout</button>
       </div>
       <h3>{{board.title}}</h3>
       <p>{{board.description}}</p>
-      <ListForm></ListForm>
       <div>
-        <button @click="deleteBoard">Delete Board</button>
+        <button class="btn btn-danger text-dark border border-light" @click="deleteBoard">Delete Board</button>
       </div>
+      <ListForm></ListForm>
       <!-- <List :listData=''></List> -->
       <div class="row">
         <list v-for="list in lists" :listData="list"></list>

@@ -5,8 +5,9 @@
         <h5 class="border border-dark">{{commentData.content}}:</h5>
         <p class="border border-dark">{{commentData.author}}:</p>
       </div>
-      <div class="col-4 border-border-dark">
-        <button class="btn btn-warning border-border-dark btn-sm" @click="deleteComment">Del</button>
+      <div class="col-12 border-border-dark">
+        <button class="btn btn-danger text-dark btn-sm btn-block border border-light" @click="deleteComment">Delete
+          Comment</button>
       </div>
     </div>
 
