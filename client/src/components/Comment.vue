@@ -1,7 +1,7 @@
 <template>
   <div class=" comments mt-2">
     <div class="row justify-content-center">
-      <div class="col-12 border border-dark">
+      <div class="col-12 ">
         <h5 class="">{{commentData.content}}:</h5>
         <p class="text-dark">{{commentData.author}}:</p>
       </div>
