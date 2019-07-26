@@ -6,8 +6,9 @@
       <TaskForm :listId="listData._id"></TaskForm>
       <button class="btn btn-danger border border-light text-dark m-1" @click="deleteList">Delete List</button>
       <div class="row">
-        <Task v-if="task.content" v-for="task in tasks" :taskData="task"></Task>
-
+        <drop class="drop" @drop="moveTask">
+          <Task v-if="task.content" v-for="task in tasks" :taskData="task"></Task>
+        </drop>
       </div>
     </div>
   </div>
@@ -16,9 +17,11 @@
 <script>
   import TaskForm from '@/components/TaskForm'
   import Task from '@/components/Tasks'
+  import { Drag, Drop } from 'vue-drag-drop';
+
   export default {
     name: 'List',
-    props: ['listData'],
+    props: ['listData', 'taskData'],
     data() {
       return {}
     },
@@ -36,11 +39,16 @@
     methods: {
       deleteList() {
         this.$store.dispatch('deleteList', this.listData)
+      },
+      moveTask(data) {
+        data.taskData.listId = this.listData._id
+        this.$store.dispatch('moveTask', data)
       }
     },
     components: {
       TaskForm,
-      Task
+      Task,
+      Drop
     }
   }
 </script>
