@@ -31,6 +31,7 @@
       }
       this.$store.dispatch('getBoardById', dataToSend)
       this.$store.dispatch('getListsByBoardId', this.$route.params.boardId)
+      this.$store.dispatch('getBoards')
     },
     computed: {
       board() {
@@ -43,6 +44,9 @@
     methods: {
       logout() {
         this.$store.dispatch('logout')
+      },
+      deleteBoard() {
+        this.$store.dispatch('deleteBoard', this.boardId)
       }
     },
     components: {
