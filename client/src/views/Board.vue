@@ -6,7 +6,7 @@
     <h3>{{board.title}}</h3>
     <p>{{board.description}}</p>
     <ListForm></ListForm>
-    <!-- <List :listData=''></List> -->
+
     <list v-for="list in lists" :listData="list"></list>
   </div>
 
